@@ -4,7 +4,7 @@ A regular expression (regex) is a sequence of characters that follows certain sy
 
 ## Summary
 
-The regex to match a hex value is this: /^#?([a-f0-9]{6}|[a-f0-9]{3})$/
+The regex to match a hex value is this: ^#?([a-f0-9]{6}|[a-f0-9]{3})$
 
 In this tutorial, I will be explaining the regex for matching a hex color value by breaking it down into and explaining each of its individual components.
 
@@ -16,8 +16,6 @@ In this tutorial, I will be explaining the regex for matching a hex color value 
 - [Character Classes](#character-classes)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 ## Regex Components
 
@@ -69,10 +67,18 @@ Most searches use greedy match -- this means the algorithm will match as many ch
 
 The regex for matching a hex value includes a '?', which means it uses lazy match. A lazy match is the opposite of greedy in that it matches as few characters as possible. It will match anything containing zero or one of the preceding token. In this case, the token that precedes '?' is the '#' character. '#' isn't a regex symbol and so it literally matches with the '#' symbol. So, the regex '#?' will match with one '#' maximum, and still match if there is no '#' present. 
 
-### Back-references
-
-### Look-ahead and Look-behind
+Since this is the last component to be covered in the regex for matching a hex value, we can sum up the whole thing: ^#?([a-f0-9]{6}|[a-f0-9]{3})$
+- This will match an entire string ('^' and '$' anchors)
+- The string matched by this may or may not start with one '#' symbol (lazy match '#?')
+- The string will match a group of characters (captured by '()')
+- The group captured by the string will contain either 3 or 6 characters ('{6}' and '{3}' quantifiers)
+- The characters in the group will consist of lowercase letters a-f and/or single-digit numerals ('[a-f0-9]' range)
+- The above criteria are met by hex color values. e.g., '#f8a3ef' - this would match with the regex and is a hex color value. It is a group of characters that contains one '#' symbol followed by 6 more characters, each of which is a single-digit numeral and/or lowercase letter from a-f.
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Calista Mayer is a new web developer, enrolled in UCBE's Coding Bootcamp. Her interest in web development began in seventh grade when she began to use HTML and CSS to customize pages on Neopets.com.
+
+At Western Washington University, Calista majored in Philosophy. Her favorite philosophical sub-topics include Asian philosophies such as yoga, Daoism, and zen. Symbolic logic, a key component in evaluating philosophical arguments, is reflected in the logical structure of technologies like HTML and CSS.
+
+Her github profile is located at https://github.com/calistamayer
