@@ -16,7 +16,6 @@ In this tutorial, I will be explaining the regex for matching a hex color value 
 - [Character Classes](#character-classes)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
 - [Back-references](#back-references)
 - [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
@@ -66,7 +65,9 @@ The group component included in the regex for matching a hex value is '([a-f0-9]
 
 ### Greedy and Lazy Match
 
-### Boundaries
+Most searches use greedy match -- this means the algorithm will match as many characters or groups as possible. In order to enable 'lazy matching', include the '?' symbol.
+
+The regex for matching a hex value includes a '?', which means it uses lazy match. A lazy match is the opposite of greedy in that it matches as few characters as possible. It will match anything containing zero or one of the preceding token. In this case, the token that precedes '?' is the '#' character. '#' isn't a regex symbol and so it literally matches with the '#' symbol. So, the regex '#?' will match with one '#' maximum, and still match if there is no '#' present. 
 
 ### Back-references
 
